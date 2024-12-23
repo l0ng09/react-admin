@@ -14,7 +14,7 @@ export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
       user: null,
-      token: 'lsfoiuvoal30948lsjv09sduf',
+      token: null,
       setUser: (user) => set({ user }),
       setToken: (token) => set({ token }),
       logout: () => set({ user: null, token: null }),

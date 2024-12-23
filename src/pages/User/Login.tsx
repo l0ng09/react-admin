@@ -10,10 +10,10 @@ const Login: React.FC = () => {
   const navigate = useNavigate()
   const setUser = useAuthStore((state) => state.setUser)
   const setToken = useAuthStore((state) => state.setToken)
+  const token = useAuthStore(state=>state.token)
 
   const handleSubmit = async (values: LoginCredentials) => {
     try {
-      // Replace with actual API call
       const response: any = await new Promise((resolve) => {
         setTimeout(() => {
           resolve({
@@ -25,6 +25,7 @@ const Login: React.FC = () => {
 
       setUser(response.user)
       setToken(response.token)
+      console.log('token: ', token);
       message.success('Login successful!')
       navigate('/')
     } catch (error) {
@@ -33,11 +34,11 @@ const Login: React.FC = () => {
     }
   }
 
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <LoginForm
-        className="text-black"
-        title="Admin Login"
+        title={<h1 className="text-gray-800">Admin Login</h1>}
         subTitle="Welcome back to the admin dashboard"
         onFinish={handleSubmit}>
         <ProFormText

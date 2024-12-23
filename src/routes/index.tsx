@@ -1,15 +1,13 @@
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, type RouteObject } from 'react-router';
 import { protectedRoute } from './auth';
 import MainLayout from '@/components/Layout/MainLayout';
 import Login from '@/pages/User/Login';
 import Home from '@/pages/Home';
-import About from '@/pages/About';
+import Table from '@/pages/Table';
+import NotFound from '@/pages/User/404';
 
-export const router = createBrowserRouter([
-  {
-    path: '/login',
-    element: <Login />,
-  },
+// RouteObject
+const routes:RouteObject[] = [
   {
     path: '/',
     element: protectedRoute(<MainLayout />),
@@ -20,8 +18,18 @@ export const router = createBrowserRouter([
       },
       {
         path: 'about',
-        element: protectedRoute(<About />),
+        element: protectedRoute(<Table />),
       },
     ],
   },
-]);
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '*',
+    element: <NotFound />,
+  }
+]
+
+export const router = createBrowserRouter(routes);
