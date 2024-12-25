@@ -3,7 +3,7 @@ import { LogoutOutlined, SettingOutlined, UserOutlined, QuestionCircleOutlined }
 import { Avatar, Dropdown, type MenuProps } from 'antd'
 import { flushSync } from 'react-dom'
 import { useNavigate } from 'react-router'
-import { useAuthStore } from '@/stores/authStore'
+import { useAuthStore } from '@/stores'
 
 const AvatarDropdown: React.FC = () => {
   const navigate = useNavigate()

@@ -1,7 +1,7 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { LoginFormPage, ProConfigProvider, ProFormCheckbox, ProFormText } from '@ant-design/pro-components'
 import { useNavigate } from 'react-router'
-import { useAuthStore } from '@/stores/authStore'
+import { useAuthStore } from '@/stores'
 import { message } from 'antd'
 
 interface LoginCredentials {
@@ -38,7 +38,7 @@ const Page = () => {
             })
             setUser(response.user)
             setToken(response.token)
-            message.success('Login successful!')
+            message.success('登录成功!')
             navigate('/')
           } catch (error) {
             console.log('error: ', error)
