@@ -17,7 +17,7 @@ export const routes: RouteConfig[] = [
     element: <MainLayout />,
     children: [
       {
-        index: true,
+        path: '',
         element: <Home />,
         auth: { required: true },
       },
