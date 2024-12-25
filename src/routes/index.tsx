@@ -1,5 +1,4 @@
-import { createBrowserRouter, type RouteObject } from 'react-router'
-import { protectedRoute } from './auth'
+import { createBrowserRouter, RouteObject } from 'react-router'
 import MainLayout from '@/components/Layout/MainLayout'
 import Login from '@/pages/User/Login'
 import Home from '@/pages/Home'
@@ -8,7 +7,6 @@ import UserCenter from '@/pages/User/UserCenter'
 import UserSetting from '@/pages/User/UserSetting'
 import NotFound from '@/pages/User/404'
 
-// RouteObject
 const routes: RouteObject[] = [
   {
     path: '/login',
@@ -16,18 +14,18 @@ const routes: RouteObject[] = [
   },
   {
     path: '/',
-    element: protectedRoute(<MainLayout />),
+    element: <MainLayout />,
     children: [
       {
         index: true,
-        element: protectedRoute(<Home />),
+        element: <Home />,
       },
       {
         path: '/table',
         children: [
           {
             path: '/table/base',
-            element: protectedRoute(<Table />),
+            element: <Table />,
           },
         ],
       },
@@ -36,11 +34,11 @@ const routes: RouteObject[] = [
         children: [
           {
             path: '/user/center',
-            element: protectedRoute(<UserCenter />),
+            element: <UserCenter />,
           },
           {
             path: '/user/setting',
-            element: protectedRoute(<UserSetting />),
+            element: <UserSetting />,
           },
         ],
       },

@@ -11,8 +11,3 @@ export interface User {
   email: string
   role: string
 }
-
-export interface LoginCredentials {
-  username: string
-  password: string
-}
