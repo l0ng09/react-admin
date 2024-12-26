@@ -54,7 +54,7 @@ const Table: React.FC = () => {
       pagination={{
         pageSize: 10,
       }}
-      params={{ a: 1, b: 2 }}
+      params={{ keyWord: 'admin' }}
       request={(params: { current?: number; pageSize?: number }, options?: { [key: string]: any }) => {
         console.log('params: ', params)
         console.log('options: ', options)
